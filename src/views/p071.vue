@@ -18,117 +18,9 @@
         综合评估
     </div>
      <div class="list card">
-    <!--
-      <div class="item item-body" style="height: auto" v-if="zhongHePingGuCard">
-        <div>
-            <div class="box">
-                <div style="float:left;">
-                    <span>评分:</span>
-                </div>
-                <div class="ivu-input-number-input-wrap" style="float:left; padding: 0 0 0 0.2rem;">
-                    <input type="number" class="ivu-input-number-input" name="pingFen" v-model="zhongHePingGuCard.DirectTotalScore">
-                </div>                
-            </div>
-            <div class="box">
-                <div style="float:left;">
-                    <span>权重:</span>
-                </div>
-                <div style="float:left; padding: 0 0 0 0.2rem;">
-                    <span>{{zhongHePingGuCard.QuanZhong + "%"}}</span>
-                </div>
-            </div>
-            <p class="clr"> </p>
-        </div>
-        <div>
-            <div class="box">
-                <div style="float:left;">
-                    <span>综合评分:</span>
-                </div>
-                <div style="float:left; padding: 0 0 0 0.2rem;">
-                    <span class="font-level2-content">{{zhongHePingGuCard.SumTotal}}</span>
-                </div>
-            </div>
-            <p class="clr"> </p>
-        </div>
-        <div>
-            <div class="box">
-                <div style="float:left;">
-                    <span>综合评级:</span>
-                </div>
-                <div style="float:left; padding: 0 0 0 0.2rem;">
-                    <Rate v-model="zhongHePingGuCard.rateValue" ></Rate>
-                    <div>{{zhongHePingGuCard.AssessLevelName}}</div>
-                </div>
-            </div>
-            <p class="clr"> </p>
-        </div>
-        <div>
-            <div class="box">
-                <div style="float:left;">
-                    <span>综合评语:</span>
-                </div>
-                <div style="float:left; padding: 0 0 0 0.2rem;">
-                    <Input style="width: 4.0rem;" v-model="zhongHePingGuCard.Remark" type="textarea" :rows="4" placeholder="请输入...">
-                    </Input>
-                </div>
-            </div>
-            <p class="clr"> </p>
-        </div>
-        <div>{{zhongHePingGuCard.OwnerName}}</div>
-        <div>{{zhongHePingGuCard.ownerRemark}}</div>
-      </div>
-     -->
         <assess-ment :zhongHePingGuCard="zhongHePingGuCard"></assess-ment>
      </div>
-     <div class="panel-title">
-        职级评定
-    </div>
-     <div class="list card">
-        <div>
-            <div class="box">
-                <span>申报类型：</span>
-                <span>晋级</span>
-            </div>
-            <p class="clr"> </p>
-        </div>
-        <div>
-            <div class="box">
-                <span>当前职级：</span>
-                <span>质量管理类-QC T2 普通等 质量</span>
-            </div>
-            <p class="clr"> </p>
-        </div>
-        <div>
-            <div class="box">
-                <span>申报目标：</span>
-                <span>质量管理类-QC T2 专业等 质量</span>
-            </div>
-            <p class="clr"> </p>
-        </div>
-        <div>
-            <div class="box">
-                <span>评级：</span>
-                <span>
-                    <Radio-group v-model="animal">
-                        <Radio label="晋级"></Radio>
-                        <Radio label="维持"></Radio>
-                    </Radio-group>
-                </span>
-            </div>
-            <p class="clr"> </p>
-        </div>
-        <div>
-            <div class="box">
-                <div style="float:left;">
-                    <span>评语：</span>
-                </div>
-                <div style="float:left; padding: 0 0 0 0.2rem;">
-                    <Input v-model="value6" style="width: 4.0rem;"  type="textarea" :rows="4" placeholder="请输入..."></Input>
-                </div>
-            </div>
-            <p class="clr"> </p>
-        </div>        
-    </div>
+    <ppe></ppe>
     <div style="padding:0 0 50px 0">
     </div>
     <div class="bar bar-footer" style="height:70px;">
@@ -174,6 +66,7 @@
     import LeadershipSurvey from '../components/leadership-survey'
     import DashedAssessMent from '../components/dashed-assess-ment'
     import AssessMent from '../components/assess-ment'
+    import Ppe from '../components/ppe'
 
     export default {
         data () {
@@ -213,7 +106,8 @@
             AssessStaffBaseInfo,
             LeadershipSurvey,
             DashedAssessMent,
-            AssessMent
+            AssessMent,
+            Ppe
         },
         methods: {
             getData () {
