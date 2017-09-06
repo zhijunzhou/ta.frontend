@@ -43,7 +43,7 @@
             return {
                 data: undefined,
                 xiangGuanPingGuDaiQuanZhongCard:[],
-                zhongHePingGuCard:{},
+                zhongHePingGuCard: undefined,
                 shangJiPingJiaResult:'',
                 submitData:null,
                 staffName:'',
@@ -127,6 +127,9 @@
                     let shangJiPingJiaResult = res.LeadershipData.Dimensions.find(f=>f.SortNum===SortNum).Behaviors[0];
                     return {SortNum,DimensionName,selfScoreName,shangJiPingJiaResult};
                 });
+
+                // init zhongHePingGuCard here, then assin its property
+                this.zhongHePingGuCard = {};
 
                 const assessStaffRemarkListResult = res.AssessStaffRemarkListResult.find(f=>f.OwnerAssessStaffID===res.AssessStaffBaseInfoQueryResult.CurHandleManAssessStaffID);
                 this.zhongHePingGuCard.DirectTotalScore =  assessStaffRemarkListResult.DirectTotalScore;
