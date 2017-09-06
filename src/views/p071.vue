@@ -10,12 +10,11 @@
         <behavior :XingWeiPingGuList="XingWeiPingGuList" :commentList="commentList" :setShangJiPingJia="setShangJiPingJia"></behavior>
     </div>
     <div class="list card">
-
-      <div class="item " style="border-width: 0px 0px 1px 0px;border-style: solid;    border-color: #ddd;">
+      <div class="item">
         综合评语
       </div>
       <div class="item-body">
-        <div v-for="zh in zongHePingYu" class="row" style="padding: 0.15rem 0 ">
+        <div v-for="zh in zongHePingYu" class="row">
             <div class="col col-20" style="padding-left: 0 ">
                 {{zh.RemarkName}} &nbsp;&nbsp;&nbsp;&nbsp;:
             </div>
@@ -39,6 +38,7 @@
         综合评估
     </div>
      <div class="list card">
+    <!--
       <div class="item item-body" style="height: auto" v-if="zhongHePingGuCard">
         <div>
             <div class="box">
@@ -77,7 +77,7 @@
                 </div>
                 <div style="float:left; padding: 0 0 0 0.2rem;">
                     <Rate v-model="zhongHePingGuCard.rateValue" ></Rate>
-                    <!-- <div>{{zhongHePingGuCard.AssessLevelName}}</div> -->
+                    <div>{{zhongHePingGuCard.AssessLevelName}}</div>
                 </div>
             </div>
             <p class="clr"> </p>
@@ -97,6 +97,8 @@
         <div>{{zhongHePingGuCard.OwnerName}}</div>
         <div>{{zhongHePingGuCard.ownerRemark}}</div>
       </div>
+     -->
+        <assess-ment :zhongHePingGuCard="zhongHePingGuCard"></assess-ment>
      </div>
      <div class="panel-title">
         职级评定
@@ -191,6 +193,7 @@
     import AssessStaffBaseInfo from '../components/assess-staff-base-info'
     import Behavior from '../components/behavior'
     import DashedAssessMent from '../components/dashed-assess-ment'
+    import AssessMent from '../components/assess-ment'
 
     export default {
         data () {
@@ -229,7 +232,8 @@
             Tags,
             AssessStaffBaseInfo,
             Behavior,
-            DashedAssessMent
+            DashedAssessMent,
+            AssessMent
         },
         methods: {
             getData () {
@@ -426,5 +430,7 @@
     border-radius: 4px;
     transition: all .2s linear;
 }
-
+input {
+    border:1px solid rgb(87, 163, 243);
+}
 </style>
