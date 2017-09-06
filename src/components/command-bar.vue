@@ -25,17 +25,17 @@
             </div>
         </div>
         <div class="bar-height save-button save-button-draft-color panel-width">
-            <a class="save-button-font">存草稿</a>
+            <a class="save-draft-button-font" @click="saveDraft">存草稿</a>
         </div>
         <div class="bar-height save-button save-button-save-color panel-width">
-            <a class="save-button-font">保存并返回</a>
+            <a class="save-button-font" @click="save">保存并返回</a>
         </div>
     </div>
 </template>
 <script>
 	export default{
 		name:'CommandBar',
-		props: [],
+		props: ['saveDraft','save'],
 		components:{
 
 		}
@@ -43,7 +43,7 @@
 </script>
 <style scoped>
 .bar-height{
-    height:70px;
+    height:1.3rem;
 }
 .panel-width{
 	width:20%;
@@ -53,15 +53,19 @@
 }
 .panel-content{
 	text-align:center;
-	font-size:18px;
+	font-size:0.3rem;
 }
 .save-button{
 	text-align: center; 
-	line-height:70px;
+	line-height:1.3rem;
+}
+.save-draft-button-font{
+	color: white; 
+	font-size: 0.3rem;
 }
 .save-button-font{
 	color: white; 
-	font-size: 12px;
+	font-size: 0.26rem;
 }
 .save-button-draft-color{
 	background: #33CC33;

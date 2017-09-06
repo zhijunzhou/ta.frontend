@@ -23,7 +23,7 @@
     <ppe></ppe>
     <div style="padding:0 0 50px 0">
     </div>
-    <command-bar></command-bar>
+    <command-bar :save="save" :saveDraft="saveDraft"></command-bar>
 </div>
 </template>
 <script>
@@ -177,6 +177,13 @@
                     title: 'Bravo',
                     content: 'Now, enjoy the convenience of iView.'
                 });
+            },
+            saveDraft(){
+                // this.zhongHePingGuCard;
+                console.log('saveDraft');
+            },
+            save(){
+                console.log('save');
             }
         },
         mounted: function() {
