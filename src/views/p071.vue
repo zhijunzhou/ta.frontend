@@ -2,28 +2,8 @@
 <div id="index">
     <div class="list card">
         <assess-staff-base-info :staffName="staffName" :remarkName="remarkName" :remarkRate="remarkRate"></assess-staff-base-info>
-    </div>
-    <div class="panel-title font-level1-title">
-        领导力行为评估
-    </div>
-    <div class="list card">
-        <behavior :XingWeiPingGuList="XingWeiPingGuList" :commentList="commentList" :setShangJiPingJia="setShangJiPingJia"></behavior>
-    </div>
-    <div class="list card">
-      <div class="item">
-        综合评语
-      </div>
-      <div class="item-body">
-        <div v-for="zh in zongHePingYu" class="row">
-            <div class="col col-20" style="padding-left: 0 ">
-                {{zh.RemarkName}} &nbsp;&nbsp;&nbsp;&nbsp;:
-            </div>
-            <div class="col col-80">
-                {{zh.Content}}
-            </div>
-        </div>
-      </div>
-    </div>
+    </div>    
+    <leadership-survey :XingWeiPingGuList="XingWeiPingGuList" :commentList="commentList" :setShangJiPingJia="setShangJiPingJia" :zongHePingYu='zongHePingYu'></leadership-survey>
     <div class="panel-title">
         相关评估-带权重
     </div>    
@@ -38,151 +18,12 @@
         综合评估
     </div>
      <div class="list card">
-    <!--
-      <div class="item item-body" style="height: auto" v-if="zhongHePingGuCard">
-        <div>
-            <div class="box">
-                <div style="float:left;">
-                    <span>评分:</span>
-                </div>
-                <div class="ivu-input-number-input-wrap" style="float:left; padding: 0 0 0 0.2rem;">
-                    <input type="number" class="ivu-input-number-input" name="pingFen" v-model="zhongHePingGuCard.DirectTotalScore">
-                </div>                
-            </div>
-            <div class="box">
-                <div style="float:left;">
-                    <span>权重:</span>
-                </div>
-                <div style="float:left; padding: 0 0 0 0.2rem;">
-                    <span>{{zhongHePingGuCard.QuanZhong + "%"}}</span>
-                </div>
-            </div>
-            <p class="clr"> </p>
-        </div>
-        <div>
-            <div class="box">
-                <div style="float:left;">
-                    <span>综合评分:</span>
-                </div>
-                <div style="float:left; padding: 0 0 0 0.2rem;">
-                    <span class="font-level2-content">{{zhongHePingGuCard.SumTotal}}</span>
-                </div>
-            </div>
-            <p class="clr"> </p>
-        </div>
-        <div>
-            <div class="box">
-                <div style="float:left;">
-                    <span>综合评级:</span>
-                </div>
-                <div style="float:left; padding: 0 0 0 0.2rem;">
-                    <Rate v-model="zhongHePingGuCard.rateValue" ></Rate>
-                    <div>{{zhongHePingGuCard.AssessLevelName}}</div>
-                </div>
-            </div>
-            <p class="clr"> </p>
-        </div>
-        <div>
-            <div class="box">
-                <div style="float:left;">
-                    <span>综合评语:</span>
-                </div>
-                <div style="float:left; padding: 0 0 0 0.2rem;">
-                    <Input style="width: 4.0rem;" v-model="zhongHePingGuCard.Remark" type="textarea" :rows="4" placeholder="请输入...">
-                    </Input>
-                </div>
-            </div>
-            <p class="clr"> </p>
-        </div>
-        <div>{{zhongHePingGuCard.OwnerName}}</div>
-        <div>{{zhongHePingGuCard.ownerRemark}}</div>
-      </div>
-     -->
         <assess-ment :zhongHePingGuCard="zhongHePingGuCard"></assess-ment>
      </div>
-     <div class="panel-title">
-        职级评定
-    </div>
-     <div class="list card">
-        <div>
-            <div class="box">
-                <span>申报类型：</span>
-                <span>晋级</span>
-            </div>
-            <p class="clr"> </p>
-        </div>
-        <div>
-            <div class="box">
-                <span>当前职级：</span>
-                <span>质量管理类-QC T2 普通等 质量</span>
-            </div>
-            <p class="clr"> </p>
-        </div>
-        <div>
-            <div class="box">
-                <span>申报目标：</span>
-                <span>质量管理类-QC T2 专业等 质量</span>
-            </div>
-            <p class="clr"> </p>
-        </div>
-        <div>
-            <div class="box">
-                <span>评级：</span>
-                <span>
-                    <Radio-group v-model="animal">
-                        <Radio label="晋级"></Radio>
-                        <Radio label="维持"></Radio>
-                    </Radio-group>
-                </span>
-            </div>
-            <p class="clr"> </p>
-        </div>
-        <div>
-            <div class="box">
-                <div style="float:left;">
-                    <span>评语：</span>
-                </div>
-                <div style="float:left; padding: 0 0 0 0.2rem;">
-                    <Input v-model="value6" style="width: 4.0rem;"  type="textarea" :rows="4" placeholder="请输入..."></Input>
-                </div>
-            </div>
-            <p class="clr"> </p>
-        </div>        
-    </div>
+    <ppe></ppe>
     <div style="padding:0 0 50px 0">
     </div>
-    <div class="bar bar-footer" style="height:70px;">
-        <div style="width:20%">
-            <div style="text-align:center;">
-                <a class="button button-icon icon ion-ios-keypad-outline"></a>
-            </div>
-            <div style="text-align:center; font-size:18px;">
-                评估
-            </div>
-        </div>
-        <div style="width:20%">
-            <div  style="text-align:center;">
-                <a class="button button-icon icon ion-settings"></a>
-            </div>
-            <div style="text-align:center;font-size:18px;">
-                看自评
-            </div>
-        </div>
-        <div style="width:20%">
-            <div style="text-align:center;">
-                <a class="button button-icon icon ion-settings"></a>
-            </div>
-            <div style="text-align:center;font-size:18px;">
-                看周边
-            </div>
-        </div>
-        <div style="width:20%; height: 70px; background: #33CC33; text-align: center; line-height:70px;">
-            <a style="color: white; font-size: 13px;}">存草稿</a>
-        </div>
-        <div style="width:20%;height:70px;background-color:#0066FF; text-align: center; line-height:70px;">
-            <a style="color: white; font-size: 13px;}">保存并返回</a>
-        </div>
-    </div>
+    <command-bar></command-bar>
 </div>
 </template>
 <script>
@@ -191,9 +32,11 @@
     import {STEPNAME,TAGNAME,EVALUATEDNAME,AssessLevelID_RATE,getValue} from '../constants.js';
     import Tags from '../components/tag.vue';
     import AssessStaffBaseInfo from '../components/assess-staff-base-info'
-    import Behavior from '../components/behavior'
+    import LeadershipSurvey from '../components/leadership-survey'
     import DashedAssessMent from '../components/dashed-assess-ment'
     import AssessMent from '../components/assess-ment'
+    import Ppe from '../components/ppe'
+    import CommandBar from '../components/command-bar'
 
     export default {
         data () {
@@ -231,9 +74,11 @@
         components: {
             Tags,
             AssessStaffBaseInfo,
-            Behavior,
+            LeadershipSurvey,
             DashedAssessMent,
-            AssessMent
+            AssessMent,
+            Ppe,
+            CommandBar
         },
         methods: {
             getData () {
