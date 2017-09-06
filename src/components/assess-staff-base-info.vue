@@ -1,20 +1,12 @@
 <template>
     <div class="item item-avatar">
-        <img src="mcfly.jpg">
-        <div>{{staffName}} &nbsp;&nbsp;<Tags type="border" color="blue" style="">
+        <profile-photo photoPath='mcfly.jpg'></profile-photo>
+        <div>{{staffName}} &nbsp;&nbsp;
+            <Tags type="border" color="blue" style="">
                 晋级
             </Tags>
         </div>
-        <Rate v-model="remarkRate" disabled style="font-size:0.32rem"></Rate>
-        <span style="
-            position: relative;
-            top: 0.05rem;
-            right: 0.10rem;
-            font-size: 0.10rem;
-            ">
-            {{remarkName}}  
-            
-            </span>
+        <assess-level :remarkName="remarkName" :remarkRate="remarkRate"></assess-level>
         <Tags type="border" color="blue" style="
             position:absolute; 
             top:0.54rem; 
@@ -22,16 +14,20 @@
             ">
             <i class="icon ion-reply"></i> 驳回
         </Tags>
-      </div>
+    </div>
 </template>
 <script>
     import Tags from '../components/tag.vue';
-    
+    import AssessLevel from '../components/assess-level';
+    import ProfilePhoto from '../components/profile-photo';
+
     export default {
         name: 'AssessStaffBaseInfo',
         props: ['staffName', 'remarkName', 'remarkRate'],
         components: {
-            Tags
+            Tags,
+            AssessLevel,
+            ProfilePhoto
         }
     }
 </script>
