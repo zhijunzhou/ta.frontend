@@ -9,7 +9,7 @@
     </div>    
     <div class="list card">
         <Tabs>
-            <TabPane v-for="crd in xiangGuanPingGuDaiQuanZhongCard" v-if="crd" :label="crd.DashedAssessorName">
+            <TabPane v-for="crd in xiangGuanPingGuDaiQuanZhongCard" v-if="crd" :label="crd.DashedAssessorName" :key="crd.DashedAssessorName">
                 <dashed-assess-ment :crd="crd"></dashed-assess-ment>
             </TabPane>
         </Tabs>
@@ -18,7 +18,7 @@
         综合评估
     </div>
      <div class="list card">
-        <assess-ment :zhongHePingGuCard="zhongHePingGuCard"></assess-ment>
+        <assess-ment :summaryData="zhongHePingGuCard"></assess-ment>
      </div>
     <ppe></ppe>
     <div style="padding:0 0 50px 0">
@@ -43,7 +43,7 @@
             return {
                 data: undefined,
                 xiangGuanPingGuDaiQuanZhongCard:[],
-                zhongHePingGuCard:{},
+                zhongHePingGuCard: undefined,
                 shangJiPingJiaResult:'',
                 submitData:null,
                 staffName:'',
@@ -127,6 +127,9 @@
                     let shangJiPingJiaResult = res.LeadershipData.Dimensions.find(f=>f.SortNum===SortNum).Behaviors[0];
                     return {SortNum,DimensionName,selfScoreName,shangJiPingJiaResult};
                 });
+
+                // init zhongHePingGuCard here, then assin its property
+                this.zhongHePingGuCard = {};
 
                 const assessStaffRemarkListResult = res.AssessStaffRemarkListResult.find(f=>f.OwnerAssessStaffID===res.AssessStaffBaseInfoQueryResult.CurHandleManAssessStaffID);
                 this.zhongHePingGuCard.DirectTotalScore =  assessStaffRemarkListResult.DirectTotalScore;
