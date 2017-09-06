@@ -5,7 +5,7 @@
 				<span>评分：</span>
 			</Col>
 			<Col span="10">
-				<InputNumber :max="100" :min="1" v-model="cardData.DirectTotalScore"></InputNumber>
+				<InputNumber :max="100" :min="1" size="small" v-model="cardData.DirectTotalScore"></InputNumber>
 			</Col>
 			<Col span="8">
 				<span>权重：</span>				
