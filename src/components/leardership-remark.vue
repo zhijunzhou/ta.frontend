@@ -4,19 +4,18 @@
         综合评语
       </div>
       <div class="item-body">
-        <div v-for="zh in zongHePingYu" class="row" style="padding: 0.15rem 0 ">
-            <div class="col col-20" style="padding-left: 0 ">
-                {{zh.RemarkName}} &nbsp;&nbsp;&nbsp;&nbsp;:
-            </div>
-            <div class="col col-80">
-                {{zh.Content}}
-            </div>
-        </div>
+            <Row class="pg-spacing" v-for="zh in zongHePingYu">
+                <Col span="4">
+                    <span>{{zh.RemarkName}}:</span>
+                </Col>
+                <Col span="20">
+                    <span>{{zh.Content}}</span>
+                </Col>
+            </Row>
       </div>
     </div>
 </template>
 <script>
-
     export default {
         name: 'LeardershipRemark',
         props: ['zongHePingYu'],
@@ -24,3 +23,17 @@
         }
     }
 </script>
+<style scoped>
+.panel-title{
+    padding: 0 0 0 0.3rem;
+}
+#totalScore {
+    width: 20px;
+}
+.pg-spacing {
+    padding: 5px 0;
+}
+span {
+    font-size: 12px;
+}
+</style>
