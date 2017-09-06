@@ -23,56 +23,17 @@
                 {{zh.Content}}
             </div>
         </div>
-       
-
       </div>
     </div>
     <div class="panel-title">
         相关评估-带权重
-    </div>
-    <div class="list card"  v-for="crd in xiangGuanPingGuDaiQuanZhongCard">
-
-      <div class="item item-avatar"  style="float: left;">
-        <img src="mcfly.jpg">
-      </div>
-      <div class="item item-avatar"  style="float: left;">
-        <img src="mcfly.jpg">
-      </div>
-      <div class="item item-avatar" style="float: left;">
-        <img src="mcfly.jpg">
-      </div>
-
-      <div class="item item-body" style="height: auto">
-        <div>
-            <div class="box">
-                <span class="font-level2-title">评估人:</span>
-                <span class="font-level2-content">{{crd.DashedAssessorName}}</span>
-            </div>        
-            <div class="box">
-                <span>权重:</span>
-                <span class="font-level2-content">{{crd.AssessorProp + "%"}}</span>
-            </div>
-            <p class="clr"> </p>
-        </div>
-        <div>
-            <div class="box">
-                <span>评分:</span>
-                <span class="font-level2-content">{{crd.SumTotal}}</span>
-            </div>        
-            <div class="box">
-                <span>评级:</span>
-                <span class="font-level2-content">{{crd.AssessLevelName}}</span>
-            </div>
-            <p class="clr"> </p>
-        </div>
-        <div>
-            <div class="box">
-                <span>评语:</span>
-                <span class="font-level2-content">{{crd.Remark}}</span>
-            </div>
-            <p class="clr"> </p>
-        </div>
-      </div>
+    </div>    
+    <div class="list card">
+        <Tabs>
+            <TabPane v-for="crd in xiangGuanPingGuDaiQuanZhongCard" v-if="crd" :label="crd.DashedAssessorName">
+                <dashed-assess-ment :crd="crd"></dashed-assess-ment>
+            </TabPane>
+        </Tabs>
     </div>
     <div class="panel-title">
         综合评估
@@ -229,6 +190,7 @@
     import Tags from '../components/tag.vue';
     import AssessStaffBaseInfo from '../components/assess-staff-base-info'
     import Behavior from '../components/behavior'
+    import DashedAssessMent from '../components/dashed-assess-ment'
 
     export default {
         data () {
@@ -266,7 +228,8 @@
         components: {
             Tags,
             AssessStaffBaseInfo,
-            Behavior
+            Behavior,
+            DashedAssessMent
         },
         methods: {
             getData () {
