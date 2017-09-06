@@ -1,7 +1,7 @@
 <template>
     <div v-if="crd">		
       <div class="item item-body" style="height: auto">
-        <Row>
+        <Row class="pg-spacing">
             <Col span="12">
                 <span class="font-level2-title">评估人:</span>
                 <span class="font-level2-content">{{crd.DashedAssessorName}}</span>
@@ -11,7 +11,7 @@
                 <span class="font-level2-content">{{crd.AssessorProp + "%"}}</span>
             </Col>
         </Row>
-        <Row>
+        <Row class="pg-spacing">
             <Col span="12">
                 <span>评分:</span>
                 <span class="font-level2-content">{{crd.SumTotal}}</span>
@@ -21,7 +21,7 @@
                 <span class="font-level2-content">{{crd.AssessLevelName}}</span>
             </Col>
         </Row>
-        <Row>
+        <Row class="pg-spacing">
             <Col>
                 <span>评语:</span>
                 <span class="font-level2-content">{{crd.Remark}}</span>
@@ -36,3 +36,11 @@
         props: ['crd']
     }
 </script>
+<style scoped>
+.pg-spacing {
+	padding: 5px 0;
+}
+span {
+    font-size: 12px;
+}
+</style>

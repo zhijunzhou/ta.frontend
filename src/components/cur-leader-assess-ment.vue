@@ -1,6 +1,6 @@
 <template>
 	<div v-if="cardData">
-		<Row>
+		<Row class="pg-spacing">
 			<Col span="6">
 				<span>评分：</span>
 			</Col>
@@ -12,7 +12,7 @@
 				<span v-if="cardData.QuanZhong">{{cardData.QuanZhong + "%"}}</span>
 			</Col>
 		</Row>
-		<Row>
+		<Row class="pg-spacing">
 			<Col span="6">
 				<span>综合评分：</span>
 			</Col>
@@ -20,7 +20,7 @@
 				<span>{{cardData.SumTotal}}</span>
 			</Col>
 		</Row>
-		<Row>
+		<Row class="pg-spacing">
 			<Col span="6">
 				<span>综合评级：</span>
 			</Col>
@@ -28,7 +28,7 @@
 				<Rate v-model="cardData.rateValue" ></Rate>
 			</Col>
 		</Row>
-		<Row>
+		<Row class="pg-spacing">
 			<Col span="6">
 				<span>综合评语：</span>
 			</Col>			
@@ -49,5 +49,11 @@ export default {
 <style scoped>
 #totalScore {
 	width: 20px;
+}
+.pg-spacing {
+	padding: 5px 0;
+}
+span {
+	font-size: 12px;
 }
 </style>
