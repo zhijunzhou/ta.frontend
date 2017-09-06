@@ -2,28 +2,8 @@
 <div id="index">
     <div class="list card">
         <assess-staff-base-info :staffName="staffName" :remarkName="remarkName" :remarkRate="remarkRate"></assess-staff-base-info>
-    </div>
-    <div class="panel-title font-level1-title">
-        领导力行为评估
-    </div>
-    <div class="list card">
-        <behavior :XingWeiPingGuList="XingWeiPingGuList" :commentList="commentList" :setShangJiPingJia="setShangJiPingJia"></behavior>
-    </div>
-    <div class="list card">
-      <div class="item">
-        综合评语
-      </div>
-      <div class="item-body">
-        <div v-for="zh in zongHePingYu" class="row">
-            <div class="col col-20" style="padding-left: 0 ">
-                {{zh.RemarkName}} &nbsp;&nbsp;&nbsp;&nbsp;:
-            </div>
-            <div class="col col-80">
-                {{zh.Content}}
-            </div>
-        </div>
-      </div>
-    </div>
+    </div>    
+    <leadership-survey :XingWeiPingGuList="XingWeiPingGuList" :commentList="commentList" :setShangJiPingJia="setShangJiPingJia" :zongHePingYu='zongHePingYu'></leadership-survey>
     <div class="panel-title">
         相关评估-带权重
     </div>    
@@ -191,7 +171,7 @@
     import {STEPNAME,TAGNAME,EVALUATEDNAME,AssessLevelID_RATE,getValue} from '../constants.js';
     import Tags from '../components/tag.vue';
     import AssessStaffBaseInfo from '../components/assess-staff-base-info'
-    import Behavior from '../components/behavior'
+    import LeadershipSurvey from '../components/leadership-survey'
     import DashedAssessMent from '../components/dashed-assess-ment'
     import AssessMent from '../components/assess-ment'
 
@@ -231,7 +211,7 @@
         components: {
             Tags,
             AssessStaffBaseInfo,
-            Behavior,
+            LeadershipSurvey,
             DashedAssessMent,
             AssessMent
         },
