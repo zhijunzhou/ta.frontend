@@ -17,7 +17,7 @@
                 </Col>
             </Row>
       </div>
-      <div class="item-body">
+      <div class="item-body" style="height: auto">
             <dashed-assess-ment :crd="xiangGuanPingGuDaiQuanZhongCardItem"></dashed-assess-ment>
       </div>      
     </div>
