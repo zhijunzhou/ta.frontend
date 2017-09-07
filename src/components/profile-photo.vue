@@ -1,12 +1,17 @@
 <template>
-	<img :src="photoPath">
+	<img :src="photoPath" @click="choose(index)" :class="{active: isActive}">
 </template>
 <script>
 	export default{
 		name:'ProfilePhoto',
-		props: ['photoPath'],
+		props: ['photoPath','index','choose','isActive'],
 		components:{
 
 		}
 	}
 </script>
+<style scoped>
+.active{
+    border: 1px solid #007aff!important;    
+}
+</style>

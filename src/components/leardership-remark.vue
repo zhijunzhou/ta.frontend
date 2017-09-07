@@ -4,7 +4,7 @@
         综合评语
       </div>
       <div class="item-body">
-            <Row class="pg-spacing" v-for="zh in zongHePingYu">
+            <Row class="pg-spacing" v-for="(zh, index) in zongHePingYu" v-bind:key="index">
                 <Col span="4">
                     <span>{{zh.RemarkName}}:</span>
                 </Col>

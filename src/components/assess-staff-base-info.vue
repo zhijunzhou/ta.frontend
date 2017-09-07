@@ -1,6 +1,6 @@
 <template>
     <div class="item item-avatar">
-        <profile-photo photoPath='mcfly.jpg'></profile-photo>
+        <profile-photo photoPath='mcfly.jpg' index='1' :choose="choose"></profile-photo>
         <div>{{staffName}} &nbsp;&nbsp;
             <Tags type="border" color="blue" style="">
                 晋级
@@ -28,6 +28,9 @@
             Tags,
             AssessLevel,
             ProfilePhoto
+        },
+        methods: {
+            choose() {}
         }
     }
 </script>

@@ -7,7 +7,7 @@
 							<div class="col col-30" style="padding: 0;">上级评价</div>
 					</div>					
 			</li>
-			<li class="item"  style="height: 1.00rem;margin:0;" v-for="lst in XingWeiPingGuList">					
+			<li class="item"  style="height: 1.00rem;margin:0;" v-for="(lst,index) in XingWeiPingGuList"  v-bind:key="index">					
 				<leadership-item :lst='lst' :commentList='commentList' :setShangJiPingJia="setShangJiPingJia"></leadership-item>
 			</li>
 	</ul>
