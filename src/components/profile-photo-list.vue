@@ -47,6 +47,7 @@
             return {
                 isShow: false,
                 photoPath:"https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=7a8ee34f30fa828bc52e95b19c762a51/060828381f30e9247e29fb7b4f086e061c95f7ef.jpg"
+                //photoPath:"mcfly.jpg"
             }
         },
 		props: ['index','choose','chooseIndex','list'],
