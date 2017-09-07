@@ -21,8 +21,8 @@
         <assess-ment :summaryData="zhongHePingGuCard"></assess-ment>
      </div>
     <ppe></ppe>
-    <!-- <div style="padding:0 0 1.8rem 0">
-    </div> -->
+    <div style="padding:0 0 0.8rem 0">
+    </div>
     <command-bar :save="save" :saveDraft="saveDraft"></command-bar>
 </div>
 </template>

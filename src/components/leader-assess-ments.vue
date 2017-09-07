@@ -1,16 +1,48 @@
-<template>
-	<div class="row" v-if="cardData">
-		<div class="col-3">{{cardData.OwnerName}}</div>
-		<div class="col-9">{{cardData.ownerRemark}}</div>
-	</div>
+<template>	
+	<Row v-if="cardData">
+		<Col span="6">
+			<span>{{englishName}}</span>
+			<br />
+			<span>{{chineseName}}</span>
+		</Col>			
+		<Col span="18">
+			{{cardData.ownerRemark}}
+		</Col>
+	</Row>
 </template>
 
 <script>
 export default {
 	name: 'LeaderAssessMents',
 	props: ['cardData'],
+	computed:{
+		englishName: function(){
+			if (this.cardData.OwnerName) {
+				let arr = this.cardData.OwnerName.split('(');
+				if (arr.length > 0) {
+					return arr[0];
+				}
+			}
+			return "";			
+		},
+		chineseName:function(){
+			if (this.cardData.OwnerName) {
+				let arr = this.cardData.OwnerName.split('(');
+				if (arr.length > 0) {
+					return "("+ arr[1];
+				}
+			}
+			return "";
+		}
+	},
 	components: {
 		
 	}
 }
 </script>
+<style scoped>
+
+span {
+    font-size: 12px;
+}
+</style>

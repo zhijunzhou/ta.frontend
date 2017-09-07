@@ -1,5 +1,4 @@
 <template>
-<div class="footer-padding">
 	<div class="bar bar-footer bar-height">
         <div class="panel-width">
             <div>
@@ -32,7 +31,6 @@
             <a class="save-button-font" @click="save">保存并返回</a>
         </div>
     </div>
-    </div>
 </template>
 <script>
 	export default{
@@ -44,9 +42,6 @@
 	}
 </script>
 <style scoped>
-.footer-padding{
-    padding:0.8rem 0 0 0;
-}
 .bar-height{
     height:1.3rem;
 }
