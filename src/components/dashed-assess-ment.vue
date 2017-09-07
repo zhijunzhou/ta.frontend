@@ -1,6 +1,5 @@
 <template>
-    <div v-if="crd">		
-      <div class="item item-body" style="height: auto">
+    <div v-if="crd">
         <Row class="pg-spacing">
             <Col span="12">
                 <span class="font-level2-title">评估人:</span>
@@ -27,7 +26,6 @@
                 <span class="font-level2-content">{{crd.Remark}}</span>
             </Col>
         </Row>
-      </div>			
     </div>
 </template>
 <script>    

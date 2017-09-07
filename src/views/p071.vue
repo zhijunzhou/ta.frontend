@@ -8,16 +8,18 @@
         相关评估-带权重
     </div>    
     <div class="list card" v-if="xiangGuanPingGuDaiQuanZhongCard">
-        <Row>
-            <Col span="6" v-for="(crd,index) in xiangGuanPingGuDaiQuanZhongCard" v-bind:key="index">            
-               <div class="item item-avatar">
-                    <profile-photo photoPath='mcfly.jpg' :choose="choose" :index='index' :isActive="xiangGuanPingGuDaiQuanZhongCardItemIndex === index"></profile-photo>
-               </div>
-            </Col>
-        </Row>
-        <Row>
+        <div class="item " style="border-width: 0px 0px 1px 0px;border-style: solid;    border-color: #ddd;">
+            <Row>
+                <Col span="5" v-for="(crd,index) in xiangGuanPingGuDaiQuanZhongCard" v-bind:key="index">           
+                   <div class="item item-avatar">
+                        <profile-photo photoPath='mcfly.jpg' :choose="choose" :index='index' :isActive="xiangGuanPingGuDaiQuanZhongCardItemIndex === index"></profile-photo>
+                   </div>
+                </Col>
+            </Row>
+      </div>
+      <div class="item-body">
             <dashed-assess-ment :crd="xiangGuanPingGuDaiQuanZhongCardItem"></dashed-assess-ment>
-        </Row>
+      </div>      
     </div>
     <div class="panel-title2">
         综合评估
