@@ -41,6 +41,6 @@
 	padding: 5px 0;
 }
 span {
-    font-size: 12px;
+    font-size: 0.2rem;
 }
 </style>

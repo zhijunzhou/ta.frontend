@@ -25,5 +25,8 @@
 <style scoped>
 .panel-title{
     padding: 0 0 0 0.3rem;
+    font-weight: 600;
+    color: #3f3f3f;
 }
+
 </style>

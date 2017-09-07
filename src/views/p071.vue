@@ -4,7 +4,7 @@
         <assess-staff-base-info :staffName="staffName" :remarkName="remarkName" :remarkRate="remarkRate"></assess-staff-base-info>
     </div>    
     <leadership-survey :XingWeiPingGuList="XingWeiPingGuList" :commentList="commentList" :setShangJiPingJia="setShangJiPingJia" :zongHePingYu='zongHePingYu'></leadership-survey>
-    <div class="panel-title">
+    <div class="panel-title2">
         相关评估-带权重
     </div>    
     <div class="list card">
@@ -14,7 +14,7 @@
             </TabPane>
         </Tabs>
     </div>
-    <div class="panel-title">
+    <div class="panel-title2">
         综合评估
     </div>
      <div class="list card">
@@ -254,8 +254,16 @@
     padding: 0.23rem 0 0 3.10rem;
 }
 
-.panel-title{
+.panel-title1{
     padding: 0 0 0 0.3rem;
+    font-weight: 600;
+    color: #3f3f3f;
+}
+
+.panel-title2{
+    padding: 0 0 0 0.3rem;
+    font-weight: 600;
+    color: #5e5e5e;
 }
 
 .box{ float: left; padding: 0 0.3rem 0.2rem 0.1rem;}
