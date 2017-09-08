@@ -1,5 +1,5 @@
 <template>
-	<img :src="photoPath" @click="choose(index)" :class="{active: isActive}">
+	<img :src="photoPath" @click="choose(index)" :class="{active: isActive}" :disabled="isActive">
 </template>
 <script>
 	export default{
@@ -12,6 +12,6 @@
 </script>
 <style scoped>
 .active{
-    border: 1px solid #007aff!important;    
+    border: 1px solid #0066ff!important;
 }
 </style>

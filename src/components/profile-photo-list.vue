@@ -84,7 +84,7 @@
 /*说明信息*/
 .h3{font-size: 0.24rem; color: #acacac}
 .bt{border-top: 1px solid #ddd}
-.icon-img{width: .77rem;height: .77rem;border: 1px solid #0066ff;border-radius: 100%;overflow: hidden}
+.icon-img{width: .77rem;height: .77rem;border-radius: 100%;overflow: hidden}
 .icon-img img{width: 100%;}
 .col-center{text-align: center;}
 </style>
