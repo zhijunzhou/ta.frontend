@@ -11,7 +11,7 @@
         相关评估-带权重
     </div>    
     <div class="list card" v-if="xiangGuanPingGuDaiQuanZhongCard">
-        <div class="item">
+        <div class="item item-pd">
             <profile-photo-list :choose="choose" :list="xiangGuanPingGuDaiQuanZhongCard" :chooseIndex='xiangGuanPingGuDaiQuanZhongCardItemIndex'></profile-photo-list>
         </div>
         <div class="item-body" style="height: auto">
@@ -155,7 +155,9 @@
     font-weight: initial;
     padding: 0.06rem 0.14rem;
 }
-
+.item-pd{
+    padding:0.2rem 0 0.2rem 0;
+}
 #index{
     height: -webkit-fill-available;
     overflow-y: auto;

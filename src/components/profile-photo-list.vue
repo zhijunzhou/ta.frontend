@@ -77,8 +77,8 @@
 	}
 </script>
 <style scoped>
-.inde{background-color: white;border-radius: 5px;}
-.pd{padding: 0.22rem;}
+.inde{background-color: white;border-radius: 5px; }
+.pd{padding: 0.05rem 0 0.05rem 0;}
 .h1{font-size: 0.32rem; color: #3f3f3f}
 .h2{font-size: 0.30rem; color: #5e5e5e}
 /*说明信息*/
