@@ -6,8 +6,15 @@
                     <Col span="2">&nbsp;</Col>
                     <Col span="4" v-for="(crd,index) in list" v-bind:key="index">
                         <Row type="flex" justify="center" class="code-row-bg" v-if="index < maxItem">
-                            <Col span="24" class="icon-img">
-                            	<profile-photo :photoPath='photoPath' :choose="choose" :index='index' :isActive="chooseIndex === index"></profile-photo>
+                            <Col span="24">
+                                <div :class="{chosed: chooseIndex === index}">
+                                    <div class="tick">
+                                        <Icon type="checkmark-circled" v-if="chooseIndex === index"></Icon>
+                                    </div>
+                                    <div class="icon-img">
+                            	        <profile-photo :photoPath='photoPath' :choose="choose" :index='index' :isActive="chooseIndex === index"></profile-photo>                                    
+                                    </div>
+                                </div>
                             </Col>
                         </Row>
                     </Col>
@@ -17,8 +24,15 @@
                     <Col span="2">&nbsp;</Col>
                     <Col span="4" v-for="(crd,index) in list" v-bind:key="index">
                         <Row type="flex" justify="center" class="pd code-row-bg" v-if="index >= maxItem">
-                            <Col span="24" class="icon-img">
-                            	<profile-photo :photoPath='photoPath' :choose="choose" :index='index' :isActive="chooseIndex === index"></profile-photo>
+                            <Col span="24">
+                            	<div :class="{chosed: chooseIndex === index}">
+                                    <div class="tick">
+                                        <Icon type="checkmark-circled" v-if="chooseIndex === index"></Icon>
+                                    </div>
+                                    <div class="icon-img">
+                            	        <profile-photo :photoPath='photoPath' :choose="choose" :index='index' :isActive="chooseIndex === index"></profile-photo>                                    
+                                    </div>
+                                </div>
                             </Col>
                         </Row>
                     </Col>
@@ -77,6 +91,30 @@
 	}
 </script>
 <style scoped>
+.chosed {
+    opacity: 1;   
+}
+.tick {
+    position: absolute;
+    right: 35%;
+    top: 70%;
+}
+.tick .ivu-icon-checkmark-circled {
+    color: #0066ff;
+}
+.arrow {
+    position: absolute;
+    right: 40%;
+    top: 80%;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+.rarrow {
+    transform: rotate(-330deg);
+    -webkit-transform: rotate(-330deg);
+}
 .inde{background-color: white;border-radius: 5px; }
 .pd{padding: 0.05rem 0 0.05rem 0;}
 .h1{font-size: 0.32rem; color: #3f3f3f}
