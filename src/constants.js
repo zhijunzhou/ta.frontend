@@ -3,8 +3,8 @@ export const STEPNAME=[
 	{id:31,StepID:31,value:"自评",url:'/p020'},
 	{id:40,StepID:40,value:"上级评估",url:'/p020'},
 	{id:41,StepID:41,value:"上级评估",url:'/p020'},
-	{id:50,StepID:50,value:"部门审批",url:'/p020'},
-	{id:51,StepID:51,value:"部门审批",url:'/p020'},
+	{id:50,StepID:50,value:"部门审批",url:'/p071'},
+	{id:51,StepID:51,value:"部门审批",url:'/p071'},
 	{id:60,StepID:60,value:"线审批",url:'/p020'},
 	{id:61,StepID:61,value:"线审批",url:'/p020'},
 	{id:70,StepID:70,value:"BG审批",url:'/p020'},
@@ -12,9 +12,9 @@ export const STEPNAME=[
 	{id:80,StepID:80,value:"同事评估",url:'/p020'},
 	{id:90,StepID:90,value:"相关评估-带权重",url:'/p020'},
 	{id:95,StepID:95,value:"相关评估-无权重",url:'/p020'},
-	{id:96,StepID:96,value:"领导力评估",url:'/p020'},
-	{id:97,StepID:97,value:"领导力评估",url:'/p020'},
-	{id:98,StepID:98,value:"领导力评估",url:'/p020'}
+	{id:96,StepID:96,value:"领导力评估",url:'/p040'},
+	{id:97,StepID:97,value:"领导力评估",url:'/p040'},
+	{id:98,StepID:98,value:"领导力评估",url:'/p040'}
 ];
 
 export const TAGNAME=[
