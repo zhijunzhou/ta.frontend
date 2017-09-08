@@ -1,9 +1,9 @@
 <template>
 	<Row>
 		<Col span="8"><span>{{Dimension.DimensionName}}</span></Col>
-		<Col span="8"><span>{{selfScoreName}}</span></Col>
+		<Col span="8"><span class="text-gray">{{selfScoreName}}</span></Col>
 		<Col span="8">
-			<Select v-model="Dimension.SortNum" @change="setShangJiPingJia(Dimension.SortNum,shangJiPingJiaResult)">
+			<Select v-model="Dimension.SortNum" @change="setShangJiPingJia(Dimension.SortNum,shangJiPingJiaResult)" placement="left">
 				<Option v-for="opt in LeadershipContent.Scores" :value="opt.Score" :key="opt.ScoreId">
 					{{opt.Name}}
 				</Option>
@@ -43,5 +43,8 @@
 }
 span {
     font-size: 0.2rem;;
+}
+.text-gray {
+	color: gray;
 }
 </style>
