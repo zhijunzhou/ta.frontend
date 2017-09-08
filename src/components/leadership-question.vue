@@ -26,6 +26,7 @@
 <style scoped>
 .item {
 	overflow: visible;
+	z-index: auto;
 }
 .ct-item-header {
 	font-size: 0.22rem;

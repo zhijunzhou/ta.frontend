@@ -3,7 +3,7 @@
 		<Col span="8"><span>{{Dimension.DimensionName}}</span></Col>
 		<Col span="8"><span class="text-gray">{{selfScoreName}}</span></Col>
 		<Col span="8">
-			<Select v-model="Dimension.SortNum" @change="setShangJiPingJia(Dimension.SortNum,shangJiPingJiaResult)" placement="left">
+			<Select v-model="Dimension.SortNum" @change="setShangJiPingJia(Dimension.SortNum,shangJiPingJiaResult)">
 				<Option v-for="opt in LeadershipContent.Scores" :value="opt.Score" :key="opt.ScoreId">
 					{{opt.Name}}
 				</Option>

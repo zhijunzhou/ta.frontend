@@ -188,6 +188,7 @@
 
 .list{
     padding: 0;
+    overflow: visible;
 }
 
 .list .item{
