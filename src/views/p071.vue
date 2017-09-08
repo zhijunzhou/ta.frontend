@@ -15,7 +15,7 @@
             <profile-photo-list :choose="choose" :list="xiangGuanPingGuDaiQuanZhongCard" :chooseIndex='xiangGuanPingGuDaiQuanZhongCardItemIndex'></profile-photo-list>
         </div>
         <div class="item-body" style="height: auto">
-            <dashed-assess-ment :crd="xiangGuanPingGuDaiQuanZhongCardItem"></dashed-assess-ment>
+            <dashed-assess-ment :crd="xiangGuanPingGuDaiQuanZhongCardItem" :AssessPackageSetting="AssessPackageSetting"></dashed-assess-ment>
         </div>
     </div>
 
@@ -67,6 +67,7 @@
                 SelfLeadershipContent:[],
                 assessStaffRemark: undefined,
                 DashedAssessResultList: undefined,
+                AssessPackageSetting:undefined,
                 API:appData
             }
         },
@@ -92,11 +93,12 @@
                 // })
                 this.submitData = this.API.result.Data;
                 const res = this.API.result.Data;
-                const {MyTask, AssessStaffBaseInfo, LeadershipContent, SelfLeadershipContent, AssessStaffRemarkList, DashedAssessResultList} = res;
+                const {MyTask, AssessStaffBaseInfo, LeadershipContent, SelfLeadershipContent, AssessStaffRemarkList, DashedAssessResultList, AssessPackageSetting} = res;
                 this.assessStaffBaseInfo = AssessStaffBaseInfo;
                 this.LeadershipContent = LeadershipContent;
                 this.SelfLeadershipContent = SelfLeadershipContent;
                 this.DashedAssessResultList = DashedAssessResultList;
+                this.AssessPackageSetting = AssessPackageSetting;
                 this.xiangGuanPingGuDaiQuanZhongCard = DashedAssessResultList.filter(f=>f.AssessorTypeID===3);
                 if (this.xiangGuanPingGuDaiQuanZhongCard.length > 0) {
                     this.xiangGuanPingGuDaiQuanZhongCardItem = this.xiangGuanPingGuDaiQuanZhongCard[0];

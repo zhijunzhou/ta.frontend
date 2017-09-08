@@ -6,7 +6,7 @@
 			<span>{{chineseName}}</span>
 		</Col>			
 		<Col span="18">
-			{{assessStaffRemark.ownerRemark}}
+			<span class="h3">{{assessStaffRemark.Remark}}</span>
 		</Col>
 	</Row>
 </template>
@@ -45,4 +45,6 @@ export default {
 span {
     font-size: 0.2rem;
 }
+.h3{font-size: 0.2rem; color: #acacac;}
+
 </style>

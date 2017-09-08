@@ -1,3 +1,4 @@
+<!-- 综合评估 -->
 <template>
 	<div v-if="assessStaffRemark">
 		<Row class="pg-spacing">
@@ -9,7 +10,7 @@
 			</Col>
 			<Col span="8">
 				<span>权重：</span>				
-				<span v-if="AssessorProp">{{AssessorProp + "%"}}</span>
+				<span v-if="AssessorProp"  class="h3">{{AssessorProp + "%"}}</span>
 			</Col>
 		</Row>
 		<Row class="pg-spacing">
@@ -17,7 +18,7 @@
 				<span>综合评分：</span>
 			</Col>
 			<Col span="18">
-				<span>{{assessStaffRemark.SumTotal}}</span>
+				<span class="h3">{{assessStaffRemark.SumTotal}}</span>
 			</Col>
 		</Row>
 		<Row class="pg-spacing">
@@ -33,8 +34,7 @@
 				<span>综合评语：</span>
 			</Col>			
 			<Col span="18">
-					<Input v-model="assessStaffRemark.Remark" type="textarea" :rows="4" placeholder="请输入...">
-						</Input>
+				<Input v-model="assessStaffRemark.Remark" type="textarea" :rows="4" placeholder="请输入..."></Input>
 			</Col>
 		</Row>
 	</div>
@@ -76,5 +76,9 @@ export default {
 }
 span {
 	font-size: 0.2rem;
+}
+.h3{
+	font-size: 0.2rem; 
+	color: #acacac; 
 }
 </style>
