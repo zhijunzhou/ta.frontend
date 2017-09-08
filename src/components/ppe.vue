@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="panel-title">
-	        职级评定
+	        <b>职级评定</b>
 	    </div>
 	    <div class="list card">
 		    <div class="item item-body">
@@ -35,10 +35,14 @@
 					</Col>
 					<Col span="18">
 						<span>
-		                    <Radio-group>
-		                        <Radio label="晋级"></Radio>
-		                        <Radio label="维持"></Radio>
-		                    </Radio-group>
+		                    <RadioGroup v-model="pingJi">
+		                        <Radio label="jj">
+									<span>晋级</span>
+								</Radio>
+		                        <Radio label="wc">
+									<span>维持</span>
+								</Radio>
+		                    </RadioGroup>
 		                </span>
 					</Col>
 		        </Row>
@@ -50,16 +54,6 @@
 						<Input type="textarea" :rows="4" placeholder="请输入..."></Input>
 					</Col>
 		        </Row>
-		        <!-- <div>
-		            <div class="box">
-		                <div style="float:left;">
-		                    <span>评语：</span>
-		                </div>
-		                <div style="float:left; padding: 0 0 0 0.2rem;">
-		                    <Input style="width: 4.0rem;"  type="textarea" :rows="4" placeholder="请输入..."></Input>
-		                </div>
-		            </div>
-		        </div> -->
 		    </div>
 	    </div>
 	</div>
@@ -68,6 +62,11 @@
 	export default{
 		name:'Ppe',
 		props: [],
+		data () {
+			return {
+				pingJi: ''
+			}
+		},
 		components:{
 
 		}

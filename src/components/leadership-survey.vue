@@ -3,7 +3,7 @@
 		<div class="panel-title font-level1-title">
 	        领导力行为评估
 	    </div>
-	    <div class="list card">
+	    <div class="list card" style="overflow:visible;">
 	        <leadership-question :LeadershipContent="LeadershipContent" :SelfLeadershipContent='SelfLeadershipContent'  :setShangJiPingJia="setShangJiPingJia"></leadership-question>
 	    </div>
 	    <leardership-remark :SelfLeadershipContent='SelfLeadershipContent'></leardership-remark>
