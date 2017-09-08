@@ -1,6 +1,7 @@
 <template>
     <div class="item item-avatar">
-        <profile-photo photoPath='mcfly.jpg' index='1' :choose="choose"></profile-photo>
+        <!-- <profile-photo photoPath='mcfly.jpg' index='1' :choose="choose"></profile-photo> -->
+        <img src="mcfly.jpg">
         <div v-if="assessStaffBaseInfo">
             {{assessStaffBaseInfo.StaffName}} &nbsp;&nbsp;
             <Tags type="border" color="blue" style="">
