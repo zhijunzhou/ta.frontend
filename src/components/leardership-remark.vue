@@ -36,4 +36,7 @@
 span {
     font-size: 0.2rem;
 }
+.card {
+    box-shadow: none;
+}
 </style>

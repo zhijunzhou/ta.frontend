@@ -28,5 +28,7 @@
     font-weight: 600;
     color: #3f3f3f;
 }
-
+.card {
+	box-shadow: none;
+}
 </style>
