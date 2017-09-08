@@ -2,8 +2,8 @@
 <div id="index">
     <div class="list card">
         <assess-staff-base-info :staffName="staffName" :remarkName="remarkName" :remarkRate="remarkRate"></assess-staff-base-info>
-    </div>    
-    <leadership-survey :XingWeiPingGuList="XingWeiPingGuList" :commentList="commentList" :setShangJiPingJia="setShangJiPingJia" :zongHePingYu='zongHePingYu'></leadership-survey>
+    </div>
+    <leadership-survey :LeadershipContent="LeadershipContent" :SelfLeadershipContent="SelfLeadershipContent" :setShangJiPingJia="setShangJiPingJia"></leadership-survey>
     <div class="panel-title2">
         相关评估-带权重
     </div>    
@@ -57,10 +57,6 @@
                 animal:'',
                 value6:'',
                 model3:'',
-                zongHePingYu:[],
-                XingWeiPingGuList:[
-                ],
-                commentList: [],
                 rateValue:5,
                 titles:['我的评估结果','下级评估结果','员工评估日程','员工评估指引','360领导力评估','意见和反馈'],
                 MaxMenu:5,
@@ -72,6 +68,9 @@
                     {title:'开发一组',tag:'员工/基干',deadLine:'7-14',deadLineHighlight:false,stepname:'上级评估'},
                     {title:'QQ游戏产品部',tag:'',deadLine:'7-18',deadLineHighlight:false,stepname2:'相关评估-带权重',desc:'johnsonyang (杨俊森)'}
                 ],
+
+                LeadershipContent:[],
+                SelfLeadershipContent:[],
                 API:appData
 
             }
@@ -88,18 +87,23 @@
         },
         methods: {
             getData () {
-                const _this = this;
-                
-                Util.ajax.get('/punchdb/loadAll', {
-                  params: {
+                //const _this = this;                
+                // Util.ajax.get('/punchdb/loadAll', {
+                //   params: {
              
-                  }
-                }).then(function(res) {
+                //   }
+                // }).then(function(res) {
                     
-                })
-                let res = this.API.result.Data;                
-                this.submitData = this.API.result.Data;
+                // })
 
+                const res = this.API.result.Data;
+                const {MyTask,LeadershipContent,SelfLeadershipContent} = res;
+                this.LeadershipContent = LeadershipContent;
+                this.SelfLeadershipContent = SelfLeadershipContent;
+
+
+                //-----------------old code------------------------------//
+                this.submitData = this.API.result.Data;
                 // assign root data
                 this.data = this.API.result.Data;
 
@@ -112,27 +116,7 @@
                         this.remarkRate = 4;
                         this.remarkName = this.AssessStaffRemarkList.AssessLevelName
                         break;
-                }
-                this.zongHePingYu = res.SelfLeadershipContent.Remarks.map(r=>{
-                    let RemarkName = r.RemarkName;
-                    let Content = r.Content;
-                    return {RemarkName,Content};
-                });
-                //XingWeiPingGu options
-                this.commentList = res.LeadershipContent.Scores.map(m=>{
-                    let ScoreName = m.Name;
-                    let Score = m.Score;
-                    return {Score,ScoreName};
-                });
-
-
-                this.XingWeiPingGuList = res.LeadershipContent.Dimensions.map(m=>{
-                    let SortNum = m.SortNum;
-                    let DimensionName = m.DimensionName;
-                    let selfScoreName = res.SelfLeadershipContent.Dimensions.find(f=>f.SortNum===SortNum).Behaviors[0].ScoreName;
-                    let shangJiPingJiaResult = res.LeadershipContent.Dimensions.find(f=>f.SortNum===SortNum).Behaviors[0];
-                    return {SortNum,DimensionName,selfScoreName,shangJiPingJiaResult};
-                });
+                }                
 
                 // init zhongHePingGuCard here, then assin its property
                 this.zhongHePingGuCard = {};

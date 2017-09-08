@@ -1,11 +1,11 @@
 <template>
 	<div class="row padding_0">
-		<div class="col col-30 padding_0"><span>{{lst.DimensionName}}</span></div>
-		<div class="col col-40 padding_0"><span>{{lst.selfScoreName}}</span></div>
+		<div class="col col-30 padding_0"><span>{{Dimension.DimensionName}}</span></div>
+		<div class="col col-40 padding_0"><span>{{selfScoreName}}</span></div>
 		<div class="col col-30 padding_0">
-			<select v-model="lst.shangJiPingJiaResult" @change="setShangJiPingJia(lst.SortNum,lst.shangJiPingJiaResult)" > 
-					<option v-for="opt in commentList" :value="opt.Score" :key="opt.Score">
-						<span>{{opt.ScoreName}}</span>
+			<select v-model="shangJiPingJiaResult" @change="setShangJiPingJia(Dimension.SortNum,shangJiPingJiaResult)" > 
+					<option v-for="opt in LeadershipContent.Scores" :value="opt.Score" :key="opt.Score">
+						<span>{{opt.Name}}</span>
 					</option>
 			</select>
 		</div>
@@ -14,10 +14,27 @@
 <script>
 	export default{
 		name:'LeadershipItem',
-		props: ['lst','commentList','setShangJiPingJia'],
+		data(){
+			return {
+				selfScoreName:"",
+				shangJiPingJiaResult: undefined
+			}
+		},
+		props: ['Dimension','LeadershipContent','SelfLeadershipContent', 'setShangJiPingJia'],
+		methods:{
+			initData(){
+				this.selfScoreName = this.SelfLeadershipContent.Dimensions.find(f=>f.SortNum=== this.Dimension.SortNum).Behaviors[0].ScoreName;
+
+				this.shangJiPingJiaResult = this.LeadershipContent.Dimensions.find(f=>f.SortNum===this.Dimension.SortNum).Behaviors[0];
+			}
+		},
 		components:{
 
+		},
+		mounted: function() {
+			this.initData();
 		}
+
 	}
 </script>
 <style scoped>

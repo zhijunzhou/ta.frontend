@@ -3,13 +3,13 @@
       <div class="item " style="border-width: 0px 0px 1px 0px;border-style: solid;    border-color: #ddd;">
         综合评语
       </div>
-      <div class="item-body">
-            <Row class="pg-spacing" v-for="(zh, index) in zongHePingYu" v-bind:key="index">
+      <div class="item-body" v-if="SelfLeadershipContent">
+            <Row class="pg-spacing" v-for="(item, index) in SelfLeadershipContent.Remarks" v-bind:key="index">
                 <Col span="4">
-                    <span>{{zh.RemarkName}}:</span>
+                    <span>{{item.RemarkName}}:</span>
                 </Col>
                 <Col span="20">
-                    <span>{{zh.Content}}</span>
+                    <span>{{item.Content}}</span>
                 </Col>
             </Row>
       </div>
@@ -18,7 +18,7 @@
 <script>
     export default {
         name: 'LeardershipRemark',
-        props: ['zongHePingYu'],
+        props: ['SelfLeadershipContent'],
         components: {
         }
     }

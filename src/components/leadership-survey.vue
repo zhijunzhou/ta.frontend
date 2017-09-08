@@ -4,9 +4,9 @@
 	        领导力行为评估
 	    </div>
 	    <div class="list card">
-	        <leadership-question :XingWeiPingGuList="XingWeiPingGuList" :commentList="commentList" :setShangJiPingJia="setShangJiPingJia"></leadership-question>
+	        <leadership-question :LeadershipContent="LeadershipContent" :SelfLeadershipContent='SelfLeadershipContent'  :setShangJiPingJia="setShangJiPingJia"></leadership-question>
 	    </div>
-	    <leardership-remark :zongHePingYu='zongHePingYu'></leardership-remark>
+	    <leardership-remark :SelfLeadershipContent='SelfLeadershipContent'></leardership-remark>
     </div>
 </template>
 <script>
@@ -14,8 +14,8 @@
 	import LeardershipRemark from '../components/leardership-remark'
 
 	export default{
-		name:'LeadershipSurvey',
-		props: ['XingWeiPingGuList','commentList','setShangJiPingJia','zongHePingYu'],
+		name:'LeadershipSurvey',		
+		props:['LeadershipContent','SelfLeadershipContent','setShangJiPingJia'],
 		components:{
 			LeadershipQuestion,
 			LeardershipRemark

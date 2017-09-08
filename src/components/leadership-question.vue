@@ -7,8 +7,8 @@
 							<div class="col col-30" style="padding: 0;">上级评价</div>
 					</div>					
 			</li>
-			<li class="item"  style="height: 1.00rem;margin:0;" v-for="(lst,index) in XingWeiPingGuList"  v-bind:key="index">					
-				<leadership-item :lst='lst' :commentList='commentList' :setShangJiPingJia="setShangJiPingJia"></leadership-item>
+			<li class="item"  style="height: 1.00rem;margin:0;" v-for="(Dimension,index) in LeadershipContent.Dimensions"  v-bind:key="index">					
+				<leadership-item :Dimension='Dimension' :LeadershipContent='LeadershipContent' :SelfLeadershipContent='SelfLeadershipContent' :setShangJiPingJia="setShangJiPingJia"></leadership-item>
 			</li>
 	</ul>
 </template>
@@ -16,8 +16,8 @@
 	import LeadershipItem from '../components/leadership-item';
 
     export default {
-        name: 'behavior',
-        props: ['commentList', 'XingWeiPingGuList', 'setShangJiPingJia'],
+        name: 'LeadershipQuestion',
+        props: ['LeadershipContent','SelfLeadershipContent', 'setShangJiPingJia'],
         components: {
         	LeadershipItem
         }
