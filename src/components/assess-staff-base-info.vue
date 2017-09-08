@@ -1,7 +1,8 @@
 <template>
     <div class="item item-avatar">
         <profile-photo photoPath='mcfly.jpg' index='1' :choose="choose"></profile-photo>
-        <div>{{staffName}} &nbsp;&nbsp;
+        <div v-if="assessStaffBaseInfo">
+            {{assessStaffBaseInfo.StaffName}} &nbsp;&nbsp;
             <Tags type="border" color="blue" style="">
                 晋级
             </Tags>
@@ -23,7 +24,13 @@
 
     export default {
         name: 'AssessStaffBaseInfo',
-        props: ['staffName', 'remarkName', 'remarkRate'],
+        data(){
+            return {
+                remarkRate: 4,
+                remarkName: ''
+            }
+        },
+        props: ['assessStaffBaseInfo'],
         components: {
             Tags,
             AssessLevel,

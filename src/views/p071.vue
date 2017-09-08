@@ -1,9 +1,12 @@
 <template>
 <div id="index">
     <div class="list card">
-        <assess-staff-base-info :staffName="staffName" :remarkName="remarkName" :remarkRate="remarkRate"></assess-staff-base-info>
+        <assess-staff-base-info :assessStaffBaseInfo="assessStaffBaseInfo"></assess-staff-base-info>
     </div>
+    <!-- 领导力行为评估 start-->
     <leadership-survey :LeadershipContent="LeadershipContent" :SelfLeadershipContent="SelfLeadershipContent" :setShangJiPingJia="setShangJiPingJia"></leadership-survey>
+    <!-- 领导力行为评估 end-->
+
     <div class="panel-title2">
         相关评估-带权重
     </div>    
@@ -15,11 +18,12 @@
             <dashed-assess-ment :crd="xiangGuanPingGuDaiQuanZhongCardItem"></dashed-assess-ment>
         </div>
     </div>
+
     <div class="panel-title2">
         综合评估
     </div>
      <div class="list card">
-        <assess-ment :summaryData="zhongHePingGuCard"></assess-ment>
+        <assess-ment :assessStaffRemark="assessStaffRemark" :DashedAssessResultList="DashedAssessResultList"></assess-ment>
      </div>
     <ppe></ppe>
     <div style="padding:0 0 0.8rem 0">
@@ -44,21 +48,10 @@
     export default {
         data () {
             return {
-                data: undefined,
                 xiangGuanPingGuDaiQuanZhongCard:[],
                 xiangGuanPingGuDaiQuanZhongCardItem:{},
                 xiangGuanPingGuDaiQuanZhongCardItemIndex: 0,
-                zhongHePingGuCard: undefined,
-                shangJiPingJiaResult:'',
                 submitData:null,
-                staffName:'',
-                remarkRate:0,
-                remarkName:'',
-                animal:'',
-                value6:'',
-                model3:'',
-                rateValue:5,
-                titles:['我的评估结果','下级评估结果','员工评估日程','员工评估指引','360领导力评估','意见和反馈'],
                 MaxMenu:5,
                 hideSubMenu:false,
                 moreContent:false,
@@ -69,10 +62,12 @@
                     {title:'QQ游戏产品部',tag:'',deadLine:'7-18',deadLineHighlight:false,stepname2:'相关评估-带权重',desc:'johnsonyang (杨俊森)'}
                 ],
 
+                assessStaffBaseInfo: undefined,
                 LeadershipContent:[],
                 SelfLeadershipContent:[],
+                assessStaffRemark: undefined,
+                DashedAssessResultList: undefined,
                 API:appData
-
             }
         },
         components: {
@@ -95,52 +90,19 @@
                 // }).then(function(res) {
                     
                 // })
-
+                this.submitData = this.API.result.Data;
                 const res = this.API.result.Data;
-                const {MyTask,LeadershipContent,SelfLeadershipContent} = res;
+                const {MyTask, AssessStaffBaseInfo, LeadershipContent, SelfLeadershipContent, AssessStaffRemarkList, DashedAssessResultList} = res;
+                this.assessStaffBaseInfo = AssessStaffBaseInfo;
                 this.LeadershipContent = LeadershipContent;
                 this.SelfLeadershipContent = SelfLeadershipContent;
-
-
-                //-----------------old code------------------------------//
-                this.submitData = this.API.result.Data;
-                // assign root data
-                this.data = this.API.result.Data;
-
-                this.staffName = res.AssessStaffBaseInfo.StaffName;
-                this.remarkRate = 0;
-                this.remarkName = '';
-                this.AssessStaffRemarkList  = res.AssessStaffRemarkList.find(f=>f.OwnerAssessStaffID ===res.AssessStaffBaseInfo.CurHandleManAssessStaffID);
-                switch (this.AssessStaffRemarkList.AssessLevelID){
-                    case 110:
-                        this.remarkRate = 4;
-                        this.remarkName = this.AssessStaffRemarkList.AssessLevelName
-                        break;
-                }                
-
-                // init zhongHePingGuCard here, then assin its property
-                this.zhongHePingGuCard = {};
-
-                const AssessStaffRemarkList = res.AssessStaffRemarkList.find(f=>f.OwnerAssessStaffID===res.AssessStaffBaseInfo.CurHandleManAssessStaffID);
-                this.zhongHePingGuCard.DirectTotalScore =  AssessStaffRemarkList.DirectTotalScore;
-                this.zhongHePingGuCard.QuanZhong=100;
-                res.DashedAssessResultList.forEach(f=>{
-                    if (f.AssessorProp){
-                        this.zhongHePingGuCard.QuanZhong-=parseInt(f.AssessorProp);
-                    }
-                });
-                this.zhongHePingGuCard.SumTotal =  AssessStaffRemarkList.SumTotal;
-                this.zhongHePingGuCard.AssessLevelID =  AssessStaffRemarkList.AssessLevelID;
-                this.zhongHePingGuCard.rateValue = getValue(this.zhongHePingGuCard.AssessLevelID,AssessLevelID_RATE).value;
-                this.zhongHePingGuCard.AssessLevelName =  AssessStaffRemarkList.AssessLevelName;
-                this.zhongHePingGuCard.Remark = AssessStaffRemarkList.Remark;
-                this.zhongHePingGuCard.OwnerName = AssessStaffRemarkList.OwnerName;
-                this.zhongHePingGuCard.ownerRemark = AssessStaffRemarkList.ownerRemark;
-
-                this.xiangGuanPingGuDaiQuanZhongCard = res.DashedAssessResultList.filter(f=>f.AssessorTypeID===3);
+                this.DashedAssessResultList = DashedAssessResultList;
+                this.xiangGuanPingGuDaiQuanZhongCard = DashedAssessResultList.filter(f=>f.AssessorTypeID===3);
                 if (this.xiangGuanPingGuDaiQuanZhongCard.length > 0) {
                     this.xiangGuanPingGuDaiQuanZhongCardItem = this.xiangGuanPingGuDaiQuanZhongCard[0];
                 }
+                //综合评估
+                this.assessStaffRemark = AssessStaffRemarkList.find(f=>f.OwnerAssessStaffID=== res.AssessStaffBaseInfo.CurHandleManAssessStaffID);
             },
             setShangJiPingJia(sortNum,shangJiPingJiaResult){
                 this.submitData.LeadershipContent.Dimensions=this.submitData.LeadershipContent.Dimensions.map(m=>{
@@ -177,7 +139,6 @@
                 this.xiangGuanPingGuDaiQuanZhongCardItemIndex = index;
             },
             saveDraft(){
-                // this.zhongHePingGuCard;
                 console.log('saveDraft');
             },
             save(){

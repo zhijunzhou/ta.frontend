@@ -7,7 +7,7 @@
 							<div class="col col-30" style="padding: 0;">上级评价</div>
 					</div>					
 			</li>
-			<li class="item"  style="height: 1.00rem;margin:0;" v-for="(Dimension,index) in LeadershipContent.Dimensions"  v-bind:key="index">					
+			<li class="item"  style="height: 1.00rem;margin:0;" v-for="(Dimension,index) in LeadershipContent.Dimensions"  v-bind:key="index" v-if="LeadershipContent && SelfLeadershipContent">					
 				<leadership-item :Dimension='Dimension' :LeadershipContent='LeadershipContent' :SelfLeadershipContent='SelfLeadershipContent' :setShangJiPingJia="setShangJiPingJia"></leadership-item>
 			</li>
 	</ul>

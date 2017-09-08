@@ -1,12 +1,12 @@
 <template>	
-	<Row v-if="cardData">
+	<Row v-if="assessStaffRemark">
 		<Col span="6">
 			<span>{{englishName}}</span>
 			<br />
 			<span>{{chineseName}}</span>
 		</Col>			
 		<Col span="18">
-			{{cardData.ownerRemark}}
+			{{assessStaffRemark.ownerRemark}}
 		</Col>
 	</Row>
 </template>
@@ -14,11 +14,11 @@
 <script>
 export default {
 	name: 'LeaderAssessMents',
-	props: ['cardData'],
+	props: ['assessStaffRemark'],
 	computed:{
 		englishName: function(){
-			if (this.cardData.OwnerName) {
-				let arr = this.cardData.OwnerName.split('(');
+			if (this.assessStaffRemark.OwnerName) {
+				let arr = this.assessStaffRemark.OwnerName.split('(');
 				if (arr.length > 0) {
 					return arr[0];
 				}
@@ -26,8 +26,8 @@ export default {
 			return "";			
 		},
 		chineseName:function(){
-			if (this.cardData.OwnerName) {
-				let arr = this.cardData.OwnerName.split('(');
+			if (this.assessStaffRemark.OwnerName) {
+				let arr = this.assessStaffRemark.OwnerName.split('(');
 				if (arr.length > 0) {
 					return "("+ arr[1];
 				}
