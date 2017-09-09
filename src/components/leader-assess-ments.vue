@@ -1,3 +1,4 @@
+<!-- 综合评估 下半部分 -->
 <template>	
 	<Row v-if="assessStaffRemark">
 		<Col span="6">

@@ -23,7 +23,7 @@
         综合评估
     </div>
      <div class="list card">
-        <assess-ment :assessStaffRemark="assessStaffRemark" :DashedAssessResultList="DashedAssessResultList"></assess-ment>
+        <assess-ment :assessStaffRemark="assessStaffRemark" :otherAssessStaffRemarkList="otherAssessStaffRemarkList" :DashedAssessResultList="DashedAssessResultList" :AssessStaffBaseInfo="assessStaffBaseInfo" :AssessPackageSetting="AssessPackageSetting"></assess-ment>
      </div>
     <ppe></ppe>
     <div style="padding:0 0 0.8rem 0">
@@ -66,6 +66,7 @@
                 LeadershipContent:[],
                 SelfLeadershipContent:[],
                 assessStaffRemark: undefined,
+                otherAssessStaffRemarkList:[],
                 DashedAssessResultList: undefined,
                 AssessPackageSetting:undefined,
                 API:appData
@@ -104,7 +105,8 @@
                     this.xiangGuanPingGuDaiQuanZhongCardItem = this.xiangGuanPingGuDaiQuanZhongCard[0];
                 }
                 //综合评估
-                this.assessStaffRemark = AssessStaffRemarkList.find(f=>f.OwnerAssessStaffID=== res.AssessStaffBaseInfo.CurHandleManAssessStaffID);
+                this.assessStaffRemark = AssessStaffRemarkList.find(f=>f.OwnerAssessStaffID=== MyTask.OwnerAssessStaffID);
+                this.otherAssessStaffRemarkList = AssessStaffRemarkList.filter(f=>f.OwnerAssessStaffID != MyTask.OwnerAssessStaffID);
             },
             setShangJiPingJia(sortNum,shangJiPingJiaResult){
                 this.submitData.LeadershipContent.Dimensions=this.submitData.LeadershipContent.Dimensions.map(m=>{
